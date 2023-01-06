@@ -7,7 +7,8 @@ if(isset($_GET['opr']))
 if(isset($_GET['rs_id']))
 	$id=$_GET['rs_id'];
 	
-						
+		
+//set the student name ,subject nam,e midterm, finalterm  and  note//
 if(isset($_POST['btn_sub'])){
 	$stu_name=$_POST['sudenttxt'];
 	$fa_name=$_POST['factxt'];
@@ -17,6 +18,7 @@ if(isset($_POST['btn_sub'])){
 	$note=$_POST['notetxt'];	
 	
 
+	//insert the all data in to the score table//
 $sql_ins=mysql_query("INSERT INTO stu_score_tbl 
 						VALUES(
 							NULL,
@@ -27,15 +29,19 @@ $sql_ins=mysql_query("INSERT INTO stu_score_tbl
 							'$final',
 							'$note'
 							)
-					");
+	
+	");
+	//if al data inserted sussufully comes true //
 if($sql_ins==true)
 	$msg="1 Row Inserted";
 else
+	//if not inserted in the table data occur error//
 	$msg="Insert Error:".mysql_error();
 	
 }
 
 //------------------uodate data----------
+//in this we update the data stu_id into studentext all the information this format//
 if(isset($_POST['btn_upd'])){
 	$stu_id=$_POST['sudenttxt'];
 	$faculties_id =$_POST['factxt'];
@@ -44,6 +50,7 @@ if(isset($_POST['btn_upd'])){
 	$final=$_POST['finaltxt'];
 	$note=$_POST['notetxt'];
 	
+	//upadte the student score tble set stu_id//
 	$sql_update=mysql_query("UPDATE stu_score_tbl SET
 							stu_id='$stu_id' ,
 							faculties_id='$faculties_id' ,
@@ -54,10 +61,12 @@ if(isset($_POST['btn_upd'])){
 						WHERE ss_id=$id
 
 					");
-					
+	
+	//if update sussufuly location shows  the score//
 if($sql_update==true)
 	header("location:?tag=view_scores");
 else
+	//if not update location fail to update score//
 	$msg="Update Fail!...";
 	
 	
@@ -76,6 +85,7 @@ else
 <?php
 if($opr=="upd")
 {
+	//sql query update student score where ss_id//
 	$sql_upd=mysql_query("SELECT * FROM stu_score_tbl WHERE ss_id=$id");
 	$rs_upd=mysql_fetch_array($sql_upd);
 ?>
@@ -99,6 +109,7 @@ if($opr=="upd")
         	<tr>
             	<td>Students's Name</td>
             	<td>
+			//select name as studenttext//
                 	<select name="sudenttxt" id="textbox">
                     	<option>---- Students's Name -----</option>
                             <?php
@@ -119,6 +130,7 @@ if($opr=="upd")
             </tr>
             
             <tr>
+		   // in the table facilities name in the textbox //
             	<td>Facuties's Name</td>
             	<td>
                 	<select name="factxt" id="textbox">
@@ -142,6 +154,7 @@ if($opr=="upd")
             <tr>
             	<td>Subjects's Name</td>
             	<td>
+			//select in the record subjecttext//
                 	<select name="subjecttxt" id="textbox">
                     	<option>------------ Sujects -----------</option>
                             <?php
@@ -162,6 +175,7 @@ if($opr=="upd")
             <tr>
             	<td>Miderm</td>
             	<td>
+			//input in name is midterm in textbox//
                 	<input type="text" name="midermtxt" id="textbox" value="<?php echo $rs_upd['miderm'];?> "/>
                 </td>
             </tr>
@@ -182,7 +196,9 @@ if($opr=="upd")
             
             <tr>
                 <td colspan="2">
+			/reset the textboxes set values click cancel button//
                 	<input type="reset" value="Cancel" id="button-in"/>
+			//update the values and submit the values//
                 	<input type="submit" name="btn_upd" value="Update" id="button-in" title="Update"  />
                 </td>
             </tr>
@@ -217,6 +233,7 @@ else
         	<tr>
             	<td>Students's Name</td>
             	<td>
+			//upate the textbox name as student name//
                 	<select name="sudenttxt" id="textbox">
                     	<option>---- Students's Name -----</option>
                             <?php
