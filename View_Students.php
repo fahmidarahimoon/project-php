@@ -13,6 +13,7 @@ if(isset($_GET['rs_id']))
 		//delete student id from student table//
 	$del_sql=mysql_query("DELETE FROM stu_tbl WHERE stu_id=$id");
 	if($del_sql)
+		//record delete in the table //
 		$msg="1 Record Deleted... !";
 	else
 		$msg="Could not Delete :".mysql_error();	
