@@ -18,6 +18,7 @@ if(isset($_POST['btn_sub'])){
 	$mail=$_POST['emailtxt'];
 	$note=$_POST['notetxt'];	
 
+	//insert the values in student table//
 $sql_ins=mysql_query("INSERT INTO stu_tbl 
 						VALUES(
 							NULL,
@@ -32,9 +33,12 @@ $sql_ins=mysql_query("INSERT INTO stu_tbl
 							'$note'
 							)
 					");
+	
+	//if all values update in table row insert sussucfull//
 if($sql_ins==true)
 	$msg="1 Row Inserted";
 else
+	//if not insert error//
 	$msg="Insert Error:".mysql_error();
 	
 }
@@ -50,6 +54,7 @@ if(isset($_POST['btn_upd'])){
 	$mail=$_POST['emailtxt'];
 	$note=$_POST['notetxt'];	
 	
+	//in this upadte student table as f-name//
 	$sql_update=mysql_query("UPDATE stu_tbl SET 
 								f_name='$f_name',
 								l_name='$l_name' ,
@@ -63,6 +68,7 @@ if(isset($_POST['btn_upd'])){
 							WHERE
 								stu_id=$id
 							");
+	//if updat student table where student id //
 	if($sql_update==true)
 		header("location:?tag=view_students");
 	else
@@ -130,6 +136,7 @@ if($opr=="upd")
             </tr>
             
             <tr>
+		    //in the table date of birth   and year //
             	<td>Date Of Birth:</td>
                 <td>
                 	<select name="yy" >
@@ -152,6 +159,7 @@ if($opr=="upd")
                     <select name="mm">
                     	<option>Month</option>
 						<?php
+	//set the month in table //
 							$sel="";
                             $mm=array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","NOv","Dec");
                             $i=0;
@@ -168,6 +176,7 @@ if($opr=="upd")
                     -
                     <select name="dd">
                     	<option>Date</option>
+			    //select option of date //
 						<?php
 						$sel="";
                         for($i=1;$i<=31;$i++){
@@ -193,6 +202,7 @@ if($opr=="upd")
             
             <tr>
             	<td>Place Of Brith:</td>
+		    //select the place of birth in t6ext field//
                 <td>
                 	<input type="text" name="pobtxt" id="textbox" value="<?php echo $rs_upd['pob'];?> "/>
                 
@@ -221,12 +231,14 @@ if($opr=="upd")
             <tr>
             	<td>Phone:</td>
             	<td>
+			//set as input text phone number//
                 	<input type="text" name="phonetxt" id="textbox" value="<?php echo $rs_upd['phone'];?>" />
                 </td>
             </tr>
             
             <tr>
             	<td>E-mail:</td>
+		    //add emaill//
                 <td>
                 	<input type="text" name="emailtxt"  id="textbox" value="<?php echo $rs_upd['email'];?> "/>
                 </td>
@@ -250,6 +262,7 @@ else
 {
 ?>
 <!-- for form Register-->
+	//registration we will put al data in the form//
 	
 <div id="top_style">
         <div id="top_style_text">
@@ -350,6 +363,7 @@ else
             <tr>
                 <td colspan="2">
                 	<input type="reset" value="Cancel" id="button-in"/>
+			//put all the informatio for registration then click submit button//
                 	<input type="submit" name="btn_sub" value="Register" id="button-in"  />
                 </td>
             </tr>
