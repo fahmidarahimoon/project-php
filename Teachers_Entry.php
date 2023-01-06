@@ -25,6 +25,7 @@ if(isset($_POST['btn_sub'])){
 	$note=$_POST['notetxt'];	
 	
 $sql_ins=mysql_query("INSERT INTO teacher_tbl 
+//add the values in table table//
 						VALUES(
 							NULL,
 							'$f_name',
@@ -63,6 +64,7 @@ if(isset($_POST['btn_upd'])){
 	$note=$_POST['notetxt'];
 
 	$sql_update=mysql_query("UPDATE teacher_tbl SET
+	//update teacher table as f_name into f_name//
 							f_name='$f_name' ,
 							l_name='$l_name' ,
 							gender='$gender' ,
@@ -79,6 +81,7 @@ if(isset($_POST['btn_upd'])){
 	
 	");
 if($sql_update==true)
+	//update the location of teacher id//
 	header("location:?tag=view_teachers");
 else
 	$msg="Update Fail!...";
@@ -99,6 +102,7 @@ else
 <?php
 if($opr=="upd")
 {
+	//in sql teacher table where teacher id select it//
 	$sql_upd=mysql_query("SELECT * FROM teacher_tbl WHERE teacher_id=$id");
 	$rs_upd=mysql_fetch_array($sql_upd);
 	list($y,$m,$d)=explode('-',$rs_upd['dob']);
@@ -141,6 +145,7 @@ if($opr=="upd")
                 <tr>
                 	<td>Gender</td>
                     <td>
+			    //put the data radio button is used for gender  either male or female cheak them//
                     	<input type="radio" name="genderrdo" value="Male"<?php if($rs_upd['gender']=="Male") echo "checked";?>  />Male
                         <input type="radio" name="genderrdo" value="Female"<?php if($rs_upd['gender']=="Female") echo "checked";?> />Female
                     </td>
@@ -236,6 +241,7 @@ if($opr=="upd")
     	<table border="0" cellpadding="5" cellspacing="0">
                     <tr> 
                     	<td>Degree</td>
+			    //select the degree type//
                     <td>
                         <select name="degree" id="textbox" >
                             
@@ -259,6 +265,7 @@ if($opr=="upd")
             	<tr>
                 	<td>Salary</td>
                     <td>
+			    //salarytext as textbox update salary//
                     	<input type="text" name="slarytxt" id="textbox" value="<?php echo $rs_upd['salary'];?>" />
                     </td>
                 </tr>
@@ -266,6 +273,7 @@ if($opr=="upd")
             	<tr>
                 	<td>Married</td>
                     <td>
+			   // radio button is used for married or single cheak it //
                     	<input type="radio" name="marriedrdo" value="Yes"<?php if($rs_upd['married']=="Yes") echo "checked";?>/>Yes 
                         <input type="radio" name="marriedrdo" value="No"<?php if($rs_upd['married']=="No") echo "checked";?> />No
                     </td>
@@ -363,6 +371,7 @@ else
                             $i=0;
                             foreach($mm as $mon){
                                 $i++;
+				    //cheak it month options//
                                 echo"<option value='$i'> $mon</option>";		
                             }
                         ?>
