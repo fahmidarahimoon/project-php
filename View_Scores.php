@@ -9,8 +9,10 @@ if(isset($_GET['rs_id']))
 	
 	if($opr=="del")
 {
+		//delete  studenr table score where id is//
 	$del_sql=mysql_query("DELETE FROM stu_score_tbl WHERE ss_id=$id");
 	if($del_sql)
+		//if deleted from sql//
 		$msg="1 Record Deleted... !";
 	else
 		$msg="Could not Delete :".mysql_error();	
@@ -70,6 +72,7 @@ if(isset($_GET['rs_id']))
     $i++;
     $color=($i%2==0)?"lightblue":"white";
     ?>
+		 //input is fetch from score table colour change //
       <tr bgcolor="<?php echo $color?>">
             <td><?php echo $i;?></td>
             <td><?php echo $row['stu_id'];?></td>
