@@ -24,6 +24,7 @@
 <div id="content-input">
 	 <table border="1" width="1300px" align="center" cellpadding="3" class="mytable" cellspacing="0">
         <tr>
+		in the table put the data //
             <th rowspan="2">No</th>
             <th rowspan="2">Students Name </th>
             <th rowspan="2">Sex </th>
