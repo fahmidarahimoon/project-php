@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `facuties_tbl` (
 --
 -- Dumping data for table `facuties_tbl`
 --
+//data insert into facilities table as and values//
 
 INSERT INTO `facuties_tbl` (`faculties_id`, `faculties_name`, `note`) VALUES
 (2, 'Science and Technology', 'Part of science'),
