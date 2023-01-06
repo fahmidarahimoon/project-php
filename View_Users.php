@@ -10,6 +10,7 @@ if(isset($_GET['rs_id']))
 	
 	if($opr=="del")
 {
+		//delete the id from user user table //
 	$del_sql=mysql_query("DELETE FROM users_tbl WHERE u_id=$id");
 	if($del_sql)
 		$msg="1 Record Deleted... !";
@@ -46,6 +47,7 @@ if(isset($_GET['rs_id']))
 	<form method="post">
     <table border="1" width="805px" align="center" cellpadding="3" class="mytable" cellspacing="0">
         <tr>
+		// all input data in the center text//
             <th>No</th>
             <th>Users Name</th>
             <th>Password</th>
