@@ -9,6 +9,7 @@
 <body>
 <div id="content">
 	<div >
+		//upload image img src//
     	<img src="picture/master.jpg" width="805" height="308"  />
     </div>
     
