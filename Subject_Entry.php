@@ -6,7 +6,7 @@ if(isset($_GET['opr']))
 
 if(isset($_GET['rs_id']))
 	$id=$_GET['rs_id'];
-	
+	//set the information in the record//
 if(isset($_POST['btn_sub'])){
 	$fa_name=$_POST['factxt'];
 	$teach_name=$_POST['techtxt'];
@@ -14,8 +14,7 @@ if(isset($_POST['btn_sub'])){
 	$sub_name=$_POST['subtxt'];
 	$note=$_POST['notetxt'];	
 	
-	
-
+//put the values into the sub table//
 $sql_ins=mysql_query("INSERT INTO sub_tbl 
 						VALUES(
 							NULL,
@@ -120,6 +119,7 @@ if($opr=="upd")
             <tr>
             	<td>Teacher's Name</td>
             	<td>
+			//in table teacher name in teacher table//
                 	<select name="techtxt" id="textbox">
                     	<option>---- Teachers's Name   ----</option>
                             <?php
@@ -141,6 +141,7 @@ if($opr=="upd")
             
             <tr>
             	<td>Semester</td>
+		    //text in semester update to semester//
             	<td>
                 	<input type="text" name="semestertxt" id="textbox" value="<?php echo $rs_upd['semester'];?>"  />
                 </td>
@@ -148,6 +149,7 @@ if($opr=="upd")
             
             <tr>
             	<td>Subjects's name</td>
+		    //subject name as text  in subject upate //
                 <td>
                 	<input type="text" name="subtxt"  id="textbox" value="<?php echo $rs_upd['sub_name'];?>" />
                 </td>
@@ -187,6 +189,7 @@ else
             	<a href="?tag=view_subjects" ><input type="button" name="btn_view" title="View Subjects" value="View_Subjects" id="button_view" style="width:120px;"  /></a>
              
        		</form>
+	       //information fill in the form for subjects//
        </div><!-- end of top_style_button-->
 </div><!-- end of top_style-->
 
