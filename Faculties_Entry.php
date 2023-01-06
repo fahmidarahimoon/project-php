@@ -8,6 +8,7 @@ if(isset($_GET['rs_id']))
 	$id=$_GET['rs_id'];
 	
 if(isset($_POST['btn_sub'])){
+	//in this facilities name post to firstname//
 	$facuties_name=$_POST['fnametxt'];
 	$note=$_POST['notetxt'];	
 	
@@ -19,9 +20,11 @@ $sql_ins=mysql_query("INSERT INTO facuties_tbl
 							'$note'
 							)
 					");
+	//if the facilities name and note are availbe write to true//
 if($sql_ins==true)
 	$msg="1 Row Inserted";
 else
+	//if not present insert error in mysql//
 	$msg="Insert Error:".mysql_error();
 	
 }
@@ -34,6 +37,7 @@ if(isset($_POST['btn_upd'])){
 	$sql_update=mysql_query("UPDATE facuties_tbl SET 
 								faculties_name='$fac_name',
 								note='$note'
+								//in this update the facilities name and note where facilities id is given//
 							WHERE
 								faculties_id=$id
 							");
@@ -84,6 +88,7 @@ if($opr=="upd")
             <tr>
             	<td>Faculties's Name</td>
             	<td>
+			//texr in to firstname value in textbox//
                 	<input type="text" name="fnametxt" id="textbox" value="<?php echo $rs_upd['faculties_name'];?>" />
                 </td>
             </tr>
@@ -97,6 +102,7 @@ if($opr=="upd")
             
             <tr>
                 <td colspan="2">
+			//in this reset the id cancel it and click to submit button and update button//
                 	<input type="reset" value="Cancel" id="button-in"/>
                 	<input type="submit" name="btn_upd" value="Update" id="button-in"  />
                 </td>
