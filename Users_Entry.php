@@ -16,6 +16,7 @@ if(isset($_POST['btn_sub'])){
 	
 
 $sql_ins=mysql_query("INSERT INTO users_tbl 
+//insert the values in usertable//
 						VALUES(
 							NULL,
 							'$username',
@@ -39,6 +40,7 @@ if(isset($_POST['btn_upd'])){
 	$note=$_POST['notetxt'];
 	
 	$sql_update=mysql_query("UPDATE users_tbl SET 
+	//upadate user table set as users_table//
 								username='$username' ,
 								password='$pwd' , 
 								type='$note' ,
@@ -64,6 +66,7 @@ if(isset($_POST['btn_upd'])){
 <?php
 if($opr=="upd")
 {
+	//select user table where id //
 	$sql_upd=mysql_query("SELECT * FROM users_tbl WHERE u_id=$id");
 	$rs_upd=mysql_fetch_array($sql_upd);
 ?>
