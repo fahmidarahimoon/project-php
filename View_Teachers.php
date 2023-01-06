@@ -10,9 +10,10 @@ if(isset($_GET['rs_id']))
 	
 	if($opr=="del")
 {
+		
 	$del_sql=mysql_query("DELETE FROM teacher_tbl WHERE teacher_id=$id");
 	if($del_sql)
-		$msg="1 Record Deleted... !";
+		$msg="1 rd Deleted... !";
 	else
 		$msg="Could not Delete :".mysql_error();	
 			
