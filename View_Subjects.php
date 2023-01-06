@@ -47,6 +47,7 @@ if(isset($_GET['rs_id']))
 	<form method="post">
     <table border="1" width="805px" align="center" cellpadding="3" class="mytable" cellspacing="0">
         <tr>
+		//put the data in mydata//
             <th>No</th>
             <th>Faculties Name</th>
             <th>Teachers Name</th>
