@@ -1,12 +1,14 @@
 <?php
 $id="";
 $opr="";
+//set the operation//
 if(isset($_GET['opr']))
 	$opr=$_GET['opr'];
 
 if(isset($_GET['rs_id']))
 	$id=$_GET['rs_id'];
 	
+//set the local name description and note //
 	
 if(isset($_POST['btn_sub'])){
 	$loca_name=$_POST['locationtxt'];
@@ -23,9 +25,11 @@ $sql_ins=mysql_query("INSERT INTO location_tb
 							)
 					");
 
+	//if the all rows inserted sucussfully //
 if($sql_ins==true)
 	$msg="1 Row Inserted";
 else
+	//if not inserted error in mysql//
 	$msg="Insert Error:".mysql_error();
 	
 }
@@ -43,10 +47,12 @@ if(isset($_POST['btn_upd'])){
 						WHERE loca_id=$id
 
 					");
-					
+		
+	//in sql update the location  sussufuuly comes true//
 if($sql_update==true)
 	header("location:?tag=view_location");
 else
+	//if not update error occur update fail//
 	$msg="Update Fail!...";
 	
 	
@@ -66,6 +72,7 @@ else
 
 if($opr=="upd")
 {
+	//in select location table where location id and fetch the data//
 	$sql_upd=mysql_query("SELECT * FROM location_tb WHERE loca_id=$id");
 	$rs_upd=mysql_fetch_array($sql_upd);
 	
