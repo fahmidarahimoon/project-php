@@ -10,6 +10,7 @@ if(isset($_GET['rs_id']))
 	
 	if($opr=="del")
 {
+		//delete student id from student table//
 	$del_sql=mysql_query("DELETE FROM stu_tbl WHERE stu_id=$id");
 	if($del_sql)
 		$msg="1 Record Deleted... !";
@@ -34,13 +35,16 @@ if(isset($_GET['rs_id']))
 <table width="755">
 	<tr>
     	<td width="190px" style="font-size:18px; color:#006; text-indent:30px;">View Students</td>
+		//view student in student  table//
         <td>
         	<a href="?tag=student_entry"><input type="button" title="Add new student" name="butAdd" value="Add New" id="button-search" /></a>
         </td>
         <td>
+		//add search  type of name of the student//
         	<input type="text" name="searchtxt" title="Enter name for search " class="search" autocomplete="off"/>
         </td>
         <td style="float:right">
+		//serach submit button serch student name in table//
         	<input type="submit" name="btnsearch" value="Search" id="button-search" title="Search Student" />
         </td>
     </tr>
@@ -53,6 +57,7 @@ if(isset($_GET['rs_id']))
 
     <table border="1" width="1050px" align="center" cellpadding="3" class="mytable" cellspacing="0">
         <tr>
+		//add the all data in the 
             <th>No</th>
             <th>Student Name</th>
             <th>Gender</th>
